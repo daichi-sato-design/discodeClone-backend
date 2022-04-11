@@ -10,9 +10,7 @@ const registerSocketServer = (server) => {
     },
   });
 
-  io.use((socket, next) => {
-    authSocket(socket, next);
-  });
+  io.use(authSocket);
 
   io.on('connection', (socket) => {
     console.log('user connected');
