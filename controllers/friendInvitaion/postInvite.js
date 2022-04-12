@@ -12,7 +12,7 @@ const postInvite = async (req, res) => {
     mail: targetMailAddress.toLowerCase(),
   });
   if (!targetUser) {
-    return res.status(404).send(`${targetMailAddress} のフレンドが見つかりませんでした。 メールアドレスをご確認ください`);
+    return res.status(404).send(`${targetMailAddress} のユーザーが見つかりませんでした。 メールアドレスをご確認ください`);
   }
 
   // [check] if invitation has been already sent
