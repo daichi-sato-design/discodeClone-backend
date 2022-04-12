@@ -26,10 +26,10 @@ const postLogin = async(req, res) => {
         },
       });
     }
-    return res.status(400).send('Invalid credentials. Please try again');
+    return res.status(400).send('無効な資格情報です。 もう一度やり直してください');
 
   } catch (err) {
-    return res.status(500).send('Something went wrong. Please try again');
+    return res.status(500).send('エラーが発生しました。 もう一度やり直してください');
   }
 }
 

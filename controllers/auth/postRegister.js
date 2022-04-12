@@ -8,7 +8,7 @@ const postRegister = async (req, res) => {
     // ユーザーが存在するかどうかを確認
     const userExists = await User.exists({ mail: mail.toLowerCase()});
     if (userExists) {
-      return res.status(409).send("E-mail already in use.");
+      return res.status(409).send("メールアドレスがすでに使用されています");
     }
     // パスワードを暗号化
     const encryptedPassword = await bcrypt.hash(password, 10);
@@ -38,7 +38,7 @@ const postRegister = async (req, res) => {
     });
 
   } catch (err) {
-    return res.status(500).send('Error occured. Please try again')
+    return res.status(500).send('エラーが発生しました。 もう一度やり直してください')
   }
 }
 
