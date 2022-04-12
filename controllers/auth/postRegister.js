@@ -1,6 +1,3 @@
-
-// 認証関数：新規登録
-
 const User = require('../../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
