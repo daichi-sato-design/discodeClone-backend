@@ -1,9 +1,7 @@
-
-// トークンの有効期限が切れていないかを確認するミドルウェア
-
 const jwt = require('jsonwebtoken');
 const config = process.env;
 
+// トークンの有効期限が切れていないかを確認するミドルウェア
 const verifyToken = (req, res, next) => {
   let token = req.body.token || req.query.token || req.headers['authorization'];
   if (!token) {
