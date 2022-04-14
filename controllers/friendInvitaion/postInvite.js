@@ -1,5 +1,6 @@
 const User = require("../../models/user");
 const FriendInvitation = require('../../models/friendInvitation');
+const friendsUpdates = require("../../socketHandlers/updates/friends");
 
 const postInvite = async (req, res) => {
   const { targetMailAddress } = req.body;
@@ -39,6 +40,9 @@ const postInvite = async (req, res) => {
   });
 
   // 招待状が正常に作成された場合、他のユーザーがオンラインの場合は友達のフレンド申請を更新します
+
+  // 保留中の申請の更新を特定のユーザーに送信する
+  friendsUpdates.updateFriendsPendingInvitations(targetUser._id.toString());
 
   return res.status(201).send('フレンド申請を送信しました');
 }
