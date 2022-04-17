@@ -17,4 +17,22 @@ router.post(
   friendInvitationControllers.controllers.postInvite,
 );
 
+const inviteDecistionSchema = Joi.object({
+  id: Joi.string().required(),
+});
+
+router.post(
+  '/accept',
+  auth,
+  validator.body(inviteDecistionSchema),
+  friendInvitationControllers.controllers.postAccept,
+);
+
+router.post(
+  '/reject',
+  auth,
+  validator.body(inviteDecistionSchema),
+  friendInvitationControllers.controllers.postReject,
+);
+
 module.exports = router;
