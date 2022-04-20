@@ -1,6 +1,7 @@
 const FriendInvitation = require('../../models/friendInvitation');
 const serverStore = require('../../serverStore');
 
+// ユーザーがオンラインの場合、フレンド申請のリストを更新
 const updateFriendsPendingInvitations = async (userId) => {
   try {
     const pendingInvitations = await FriendInvitation.find({

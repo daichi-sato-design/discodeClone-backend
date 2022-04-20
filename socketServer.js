@@ -16,9 +16,6 @@ const registerSocketServer = (server) => {
   io.use(authSocket);
 
   io.on('connection', (socket) => {
-    console.log('user connected');
-    console.log(socket.id);
-
     newConnectionHandler(socket, io);
 
     socket.on('disconnect', () => {
