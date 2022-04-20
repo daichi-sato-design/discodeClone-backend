@@ -26,6 +26,8 @@ const postAccept = async (req, res) => {
     await FriendInvitation.findByIdAndDelete(id);
 
     // 「フロントエンド」ユーザーがオンラインの場合は、フレンドのリストを更新
+    friendsUpdates.updateFriends(senderId.toString());
+    friendsUpdates.updateFriends(receiverId.toString());
 
     // 「フロントエンド」ユーザーがオンラインの場合は、フレンド申請のリストを更新
     friendsUpdates.updateFriendsPendingInvitations(receiverId.toString());

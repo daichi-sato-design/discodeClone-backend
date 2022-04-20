@@ -9,8 +9,10 @@ const newConnectionHandler = async (socket, io) => {
     userId: userDetails.userId,
   });
 
-  // 保留中のフレンド申請リストを更新する
+  // 保留中のフレンド申請リストを更新
   friendsUpdate.updateFriendsPendingInvitations(userDetails.userId);
+  // フレンドリストを更新
+  friendsUpdate.updateFriends(userDetails.userId);
 
 }
 
