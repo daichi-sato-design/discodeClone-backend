@@ -14,7 +14,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// register the routes
+// --------------- //
+//      ROUTES     //
+// --------------- //
 app.use('/api/auth', authRoutes);
 app.use('/api/friend-invitation', friendInvitationRoutes);
 
